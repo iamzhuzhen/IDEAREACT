@@ -1,0 +1,154 @@
+
+* {
+      padding:0px;
+  
+      margin:0px;
+  }
+
+    .App { 
+     display: flex; 
+     flex-direction: column;   
+     justify-content: flex-start;
+     min-height: 1000px;
+     height: 100%;
+
+    }
+    .Head {
+        width: 100%;
+        height:100px;
+        /* border:solid 1px red; */
+        margin:0px auto;
+        color: white;
+        background-color: #333333;
+      }
+    
+    .Body {
+          width: 100%;
+          flex:1;
+          margin:10px auto;
+          display: flex; 
+          
+          
+      }
+    
+    .Foot {
+          width: 100%;
+          margin:0px auto;
+      
+          height:100px;
+      
+          /* border:solid 1px red; */
+          color: white;
+          background-color: #333333;
+    
+      
+      }
+ 
+  @media screen and (min-width:600px) and (max-width:900px)
+  
+  {
+  
+      .Head,.Foot
+  
+      {
+  
+          width:600px;
+  
+      }
+  
+      .Body
+  
+      {
+  
+          width:600px;
+  
+          height:400px;;
+  
+      }
+  
+      .Menu
+  
+      {
+  
+          width:200px;
+  
+          height:400px;
+  
+          border:solid 1px red;
+  
+          float:left; /*以下均要设置左浮动，保证在同一行*/
+  
+      }
+  
+      .Content
+  
+      {
+  
+          width:396px;
+  
+          height:400px;
+  
+          border:solid 1px red;
+  
+          float:left;
+  
+      }
+  
+      /* #main-right
+  
+      {
+  
+          display:none; 
+  
+      } *//*隐藏内容右边*/
+  
+  }
+  @media screen and (max-width:600px)
+  
+  {
+  
+      .Head,.Foot
+  
+      {
+  
+          width:300px;
+  
+      }
+  
+      .Body
+  
+      {
+  
+          width:300px;
+  
+          height:400px;
+  
+      }
+  
+      .Menu
+  
+      {
+  
+          display:none; /*隐藏内容左边*/
+  
+      }
+  
+      .Content
+  
+      {
+  
+          width:300px;
+  
+          height:400px;
+  
+          border:solid 1px red;
+  
+      }
+  
+      /* #main-right {
+  
+          display:none;  
+  
+      }  *//*隐藏内容右边*/
+  
+  }

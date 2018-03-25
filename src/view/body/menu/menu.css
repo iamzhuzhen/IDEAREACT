@@ -1,0 +1,10 @@
+.Menu{
+    
+}
+
+.Menu ul li {
+    background-color: orange;
+    color: white;
+    margin:20px;
+    text-align: center;
+}
