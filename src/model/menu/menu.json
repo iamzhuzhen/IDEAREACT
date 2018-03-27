@@ -1,0 +1,27 @@
+{
+    "menu": {
+        "name":"Edu",
+        "menu_list":[
+            {
+                "name": "Scenario",
+                "link": "/"
+            },
+            {
+                "name": "Card",
+                "link": "/card"
+            },
+            {
+                "name": "Word",
+                "link": "/word"
+            },
+            {
+                "name": "Image",
+                "link": "/image"
+            },
+            {
+                "name": "Audio",
+                "link": "/audio"
+            }
+        ]
+    }
+  }

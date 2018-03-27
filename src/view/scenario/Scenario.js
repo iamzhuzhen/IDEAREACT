@@ -1,7 +1,14 @@
 import React, { Component } from 'react';
 
 import './scenario.css';
-class Scenario extends React.Component {
+import { FormGroup, ControlLabel, FormControl, HelpBlock } from 'react-bootstrap';
+
+
+
+
+
+
+  class Scenario extends React.Component {
     
         // static propTypes = {//类的静态属性
         //     initialValue: React.PropTypes.string
@@ -16,26 +23,36 @@ class Scenario extends React.Component {
     
             // 设置 initial state
             this.state = {
-                text: props.initialValue || 'placeholder',
-                isLoading: false
-            };
+                value: ''
+              };
     
             
     
             // ES6 类中函数必须手动绑定
-            //this.handleChange = this.handleChange.bind(this);//构造函数中绑定
+            this.handleChange = this.handleChange.bind(this);//构造函数中绑定
         }
     
         handleChange(event) {
-            this.setState({
-                text: event.target.value
-            });
+            this.setState({ value: event.target.value });
         }
+
+      
+
+
+          FieldGroup({ id, label, help, ...props }) {
+            return (
+              <FormGroup controlId={id}>
+                <ControlLabel>{label}</ControlLabel>
+                <FormControl {...props} />
+                {help && <HelpBlock>{help}</HelpBlock>}
+              </FormGroup>
+            );
+          }  
     
         render() {
             return (
                 <div className="Scenario">
-                    Scenario
+                   Scenario
                 </div>
             );
         }
@@ -48,5 +65,13 @@ class Scenario extends React.Component {
     // Head.defaultProps = {
     //     initialValue: ''
     // };
-    
+    function FieldGroup({ id, label, help, ...props }) {
+        return (
+          <FormGroup controlId={id}>
+            <ControlLabel>{label}</ControlLabel>
+            <FormControl {...props} />
+            {help && <HelpBlock>{help}</HelpBlock>}
+          </FormGroup>
+        );
+      }
     

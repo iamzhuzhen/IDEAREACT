@@ -1,13 +1,38 @@
 import React, { Component } from 'react';
 
 import './App.css';
-
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 import Head from './view/head/Head';
 import Body from './view/body/Body';
 import Foot from './view/foot/Foot';
+import {
+  fetchPosts
+} from './action';
+import configureStore from './store/configureStore';
+const store = configureStore();
 
 class App extends Component {
+
+  constructor(props) {
+    super(props)
+    // this.handleChange = this.handleChange.bind(this)
+    // this.handleRefreshClick = this.handleRefreshClick.bind(this)
+    console.log('constructor props: ' + props);
+  }
+  
+  componentDidMount() {
+    console.log('componentDidMount');
+
+    // store.dispatch(fetchPosts('reactjs'));
+  }
+
+  componentWillReceiveProps(nextProps) {
+    console.log('componentWillReceiveProps: ' + nextProps);
+  }
+
   render() {
+    console.log('render: ');
     return (
       // <div className="App">
       //   <header className="App-header">
@@ -28,26 +53,13 @@ class App extends Component {
   }
 }
 
+// App.propTypes = {
+//   selectedSubreddit: PropTypes.string.isRequired,
+//   posts: PropTypes.array.isRequired,
+//   isFetching: PropTypes.bool.isRequired,
+//   lastUpdated: PropTypes.number,
+//   dispatch: PropTypes.func.isRequired
+// }
 
-function mapStateToProps(state) {
-  return state
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    changeName () {
-      dispatch({
-        type: 'CHANGE_NAME',
-        name: '葬爱'
-      })
-    },
-    showDialog () {
-      dispatch({
-        type: 'SHOW_DIALOG'
-      })
-    }
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;
 

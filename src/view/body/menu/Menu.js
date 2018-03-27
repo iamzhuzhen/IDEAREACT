@@ -24,7 +24,7 @@ class Menu extends React.Component {
             
     
             // ES6 类中函数必须手动绑定
-            //this.handleChange = this.handleChange.bind(this);//构造函数中绑定
+            this.handleChange = this.handleChange.bind(this);//构造函数中绑定
         }
     
         handleChange(event) {
@@ -32,7 +32,12 @@ class Menu extends React.Component {
                 text: event.target.value
             });
         }
-    
+
+        componentDidMount() {
+            // const { dispatch, selectedPost } = this.props
+            // dispatch(getMenus())
+        }
+
         render() {
             return (
                 <div className="Menu">
@@ -57,32 +62,6 @@ class Menu extends React.Component {
     //     initialValue: ''
     // };
 
-    var initState = {
-        menu: {
-            name:'Edu',
-            menu_list:[
-                {
-                    name: 'Scenario',
-                    link: '/'
-                },
-                {
-                    name: 'Card',
-                    link: '/card'
-                },
-                {
-                    name: 'Word',
-                    link: '/word'
-                },
-                {
-                    name: 'Image',
-                    link: '/image'
-                },
-                {
-                    name: 'Audio',
-                    link: '/audio'
-                },
-            ]
-        }
-      }
+    
     
     
