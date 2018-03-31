@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 
 import './scenario.css';
-import { FormGroup, ControlLabel, FormControl, HelpBlock } from 'react-bootstrap';
+import { FormGroup, ControlLabel, FormControl, HelpBlock,Button,Form } from 'react-bootstrap';
 
 
-
+// import ReactTable from 'react-table';
+// import 'react-table/react-table.css'
 
 
 
@@ -37,22 +38,19 @@ import { FormGroup, ControlLabel, FormControl, HelpBlock } from 'react-bootstrap
         }
 
       
+        
 
-
-          FieldGroup({ id, label, help, ...props }) {
-            return (
-              <FormGroup controlId={id}>
-                <ControlLabel>{label}</ControlLabel>
-                <FormControl {...props} />
-                {help && <HelpBlock>{help}</HelpBlock>}
-              </FormGroup>
-            );
-          }  
+          
     
         render() {
+
+          
             return (
                 <div className="Scenario">
-                   Scenario
+                  <Form>
+                    {fields(formInstance)}
+                    <Button type="submit">Submit</Button>
+                   </Form>
                 </div>
             );
         }
@@ -65,13 +63,87 @@ import { FormGroup, ControlLabel, FormControl, HelpBlock } from 'react-bootstrap
     // Head.defaultProps = {
     //     initialValue: ''
     // };
+
+    
     function FieldGroup({ id, label, help, ...props }) {
         return (
-          <FormGroup controlId={id}>
+          <FormGroup controlId={id} key={id}>
             <ControlLabel>{label}</ControlLabel>
             <FormControl {...props} />
             {help && <HelpBlock>{help}</HelpBlock>}
           </FormGroup>
         );
       }
-    
+
+    function fields(formFields) {
+      return formFields.map((field) => {
+        return FieldGroup({ id:field.id, label:field.label, help:field.help,type:field.type });
+      })
+    }
+      const formInstance = [
+        {
+          id: "scenario1",
+          type: "text",
+          label: "Scenario Label",
+          placeholder: "Enter text"
+        },
+        {
+          id: "scenario2",
+          type: "text",
+          label: "Scenario Desc",
+          placeholder: "Enter text"
+        },
+        {
+          id: "scenario3",
+          type: "text",
+          label: "Scenario Label",
+          placeholder: "Enter text"
+        },
+        {
+          id: "scenarioFile",
+          type: "file",
+          label: "File",
+          placeholder: "Example block-level help text here."
+        }
+      ]
+
+      // const data = [
+      //     {
+      //     name: 'Tanner Linsley',
+      //     age: 26,
+      //     friend: {
+      //       name: 'Jason Maurer',
+      //       age: 23,
+      //     }
+      //   }, {
+      //     name: 'Tanner Linsley',
+      //     age: 26,
+      //     friend: {
+      //       name: 'Jason Maurer',
+      //       age: 23,
+      //     }
+      //   }
+      // ]
+
+      // const columns = [{
+      //   Header: 'Name',
+      //   accessor: 'name' // String-based value accessors!
+      // }, {
+      //   Header: 'Age',
+      //   accessor: 'age',
+      //   Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
+      // }, {
+      //   id: 'friendName', // Required because our accessor is not a string
+      //   Header: 'Friend Name',
+      //   accessor: d => d.friend.name // Custom value accessors!
+      // }, {
+      //   Header: props => <span>Friend Age</span>, // Custom header components!
+      //   accessor: 'friend.age'
+      // }]
+
+      // const columns = [
+      //   {
+      //     Header: 'Name',
+      //     accessor: 'name'
+      //   }
+      // ]
